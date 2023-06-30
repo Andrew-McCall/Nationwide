@@ -112,8 +112,8 @@ console.log(i)
 
 // Type of loop, that manages its own counter variable
 //    variable        condition     iter-end
-for (let counter = 0; counter < 10; counter++){
-    console.log(counter)
+for (let counter = 0; counter < 100; counter++){
+    console.log(counter%9)
 }
 
 console.log("ARRAY Milarcy")
@@ -138,6 +138,80 @@ while (counter < array.length){
     counter++;
 }
 
-
 console.log(array)
 // console.log(array.map(item => item * 10))
+
+let number = -26
+switch (number) {
+    case 0:
+        console.log("Zero");
+        break;
+    case 1: 
+        console.log("One");
+        break;
+    case 2: 
+        console.log("Two")
+        break;
+
+    case -2:
+    case -3:
+        console.log("minus");
+    case 3:
+        console.log("three")
+        break;
+    default:
+        console.log("Anything else")
+}
+
+// Switch ([input])
+// {
+// case [Condtion]:
+// code 
+// break;
+//} 
+
+let evenNumbers = 0
+while (true){
+    evenNumbers++; // en = en + 1
+
+    // If ODD
+    if (evenNumbers % 2 === 1){
+        continue // Skips to the next iteration of the loop
+    }
+
+    // If above 100
+    if (evenNumbers > 100){
+        break   // Exit the loop
+    }
+
+    console.log(evenNumbers)
+}
+
+// Modlu returns the remainder if it was a division
+console.log(15 % 7)   // 1 (15-(7*2))
+console.log(21 % 10)  // 1 (21-(10*2))
+console.log(25 % 10)  // 5 (25-(10*2))
+console.log(37 % 8)   // 5 (37-32)
+console.log(52098326893299 % 8)   // 3 
+
+// Any number modulo 2 returns 0 for even, 1 for odd
+console.log(25 % 2)   // 1 (25-24)
+console.log(26 % 2)   // 0 (25-24) 
+
+// Addition of a string make it a string,
+// multiplcation is treated as a number
+console.log((1 + "0") * 9)
+
+let boolExample = false;
+if (boolExample || 0 || "" || undefined || null || NaN){
+    console.log("falsey shouldnt be here")
+}else{
+    console.log("I told you it was false")
+}
+
+let stringExample = "0" 
+if (stringExample && "Anystring" && [] && {} && function(){}){
+    console.log("all true")
+}else{
+    console.log("truthy shouldnt be here")
+}
