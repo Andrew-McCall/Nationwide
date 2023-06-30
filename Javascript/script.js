@@ -111,8 +111,8 @@ console.log(i)
 //  delete i;
 
 // Type of loop, that manages its own counter variable
-//    variable        condition     loop-end
-for (let counter = 0; counter < 10; counter += 1){
+//    variable        condition     iter-end
+for (let counter = 0; counter < 10; counter++){
     console.log(counter)
 }
 
