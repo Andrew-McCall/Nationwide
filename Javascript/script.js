@@ -24,5 +24,5 @@ let e = []
 let f = e
 e.push(1)
 f.push(-1)
-console.log(e) // {key: 'Value'}
-console.log(f) // {key: 'Value'}
+console.log(e) // [1, -1]
+console.log(f) // [1, -1]
