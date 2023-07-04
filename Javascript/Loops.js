@@ -244,13 +244,3 @@ if (false){
 }else{
     console.log("4")
 }
-
-//Create a IF statement that satifies the following:
-/*
-Declare a variable age
-
-if age is less than 18, print underage
-if age is over 18 AND under 65 print happy
-if aga is over 65 print overage
-
-*/
