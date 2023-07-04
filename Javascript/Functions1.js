@@ -143,3 +143,15 @@ calculator(1, 2, "/")
 calculator(1, 2, "+")
 calculator(1, 2, "Z5235325")
 calculator(4, 4, "**")
+
+/*
+MERN
+
+Node       - Backend - Runs out javascript code
+Express    - Specific lib for an Application Programming Interface
+MongoBD    - NOSQL DB - stores json object. you can make "collections" which groups
+React      - uses a mix of html and js (jsx) the react lib
+
+Application Programming Interface
+A set of rules for 2+ computers to talk
+*/
