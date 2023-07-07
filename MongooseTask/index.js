@@ -112,8 +112,9 @@ function CreateFunction(){
     // ask for new height
     // ask for new job
 
-    // peopleModel.create({name, age, height})
+    // peopleModel.create({name, age, height, job})
     // print newly created person (with id)
+    // Loop back to mainmenu
 }
 
 function UpdateFunction(){
@@ -125,11 +126,10 @@ function UpdateFunction(){
     // ask for new job
     // EXT findbyid first to get old values/check if id is vaild
 
-    // peopleModel.updateById(id, {name, age, height})
+    // peopleModel.updateById(id, {name, age, height, job})
     // print old person
     // print new person
-    console.log("TODO")
-    MainMenu()
+    // Loop back to mainmenu
 }
 
 function DeleteFunction(){
@@ -137,11 +137,9 @@ function DeleteFunction(){
     // deleteById(id) works but..
     // findByIdAndDelete
     // print the person they deleted
-    // EXT confirm that they want to delete this person
-    
+    // Loop back to mainmenu
 
-    console.log("TODO")
-    MainMenu()
+    // EXT confirm that they want to delete this person
 }
 
 function NameSearchFunction(){
@@ -149,8 +147,7 @@ function NameSearchFunction(){
     
     // find({name})
     // print everyone found
-    console.log("TODO")
-    MainMenu()
+    // Loop back to mainmenu
 }
 
 function CustomSortFunction(){
