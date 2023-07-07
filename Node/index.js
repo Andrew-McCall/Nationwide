@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
  
+const carModel = require("./cars.js")
 /*
 //                url for local mongo server
 console.log("Hello World")
@@ -33,7 +34,7 @@ console.log("End of File")
 // https://qa-community.co.uk/~/_/learning/javascript/javascript--callbacks-and-promises
  
  
-mongoose.connect("mongodb://127.0.0.1:27017").then(() => {
+mongoose.connect("mongodb+srv://nationwide.me135ji.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509").then(() => {
  
     console.log("Connected!")
  
@@ -60,17 +61,7 @@ mongoose.connect("mongodb://127.0.0.1:27017").then(() => {
     console.log(err)
 })
  
-// schema is limitations on me creating
-const carSchema = new mongoose.Schema({
-    reg:String,
-    age:{type:Number, required:true},
-    make:String,
-    model:String,
-    colour:String
-})
- 
-//                   collection name, blueprint of each doc,
-const carModel = mongoose.model("car", carSchema)
+
 // the collection as a js object that i can interact with easily
  
 // const schemaless = mongoose.model("people")
