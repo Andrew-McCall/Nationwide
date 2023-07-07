@@ -72,7 +72,7 @@ function MainMenu(){
  
 function ReadAllFunction(){
     peopleModel.find({}).then( allPeople => {
-        if (allPeople){
+        if (allPeople.length > 0){
             for (let person of allPeople){
                 console.log(person)
             }
@@ -91,7 +91,7 @@ function ReadByIDFunction(){
  
     // find by id accepts just a string
     peopleModel.findById(id).then( person => {
-        if (person){
+        if (person != null){
             console.log(person)
         }else{
             console.log("That person does not extist!")
