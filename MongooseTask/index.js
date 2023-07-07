@@ -23,15 +23,18 @@ function MainMenu(){
     console.log(" --- CRUD Menu --- ")
     console.log("1 - Read All")
     console.log("2 - Read One")
-    console.log("3 - Update")
-    console.log("4 - Delete")
-    console.log("5 - Name Search")
-    console.log("6 - Sort (Extension)")
+    console.log("3 - Create")
+    console.log("4 - Update")
+    console.log("5 - Delete")
+    console.log("6 - Name Search")
+    console.log("7 - Sort (Extension)")
     console.log("q - to Quit")
 
-    // wait for an answer indefintltitly
+    // Switch is better than ifs IF you know the outcomes already
+    // The switch matches the number entered (see console logs above) to the function 
+    // The functions are what need to be edited but you're welcome to add extras/your own
+    // *in VSC ctrl click the function to jump to it or scroll down. Each function has extra comments*
     const choice = input("Choose an option: ")
- 
     switch(choice){
  
         case "1": 
@@ -43,18 +46,22 @@ function MainMenu(){
             break;
 
         case "3":
+            CreateFunction()
+            break;
+
+        case "4":
             UpdateFunction()
             break;
         
-        case "4":
+        case "5":
             DeleteFunction()
             break;
 
-        case "5":
+        case "6":
             NameSearchFunction()
             break;
 
-        case "6":
+        case "7":
             CustomSortFunction()
             break;
  
@@ -91,13 +98,21 @@ function ReadByIDFunction(){
  
     // find by id accepts just a string
     peopleModel.findById(id).then( person => {
-        if (person != null){
-            console.log(person)
-        }else{
-            console.log("That person does not extist!")
-        }
+        console.log(person)
+    }).catch(()=> {
+        console.log("That person does not exist!")
+    }).finally( () => {
         MainMenu()
     })
+}
+
+function CreateFunction(){    
+    // ask for new name,
+    // ask for new age,
+    // ask for new height
+
+    // peopleModel.create({name, age, height})
+    // print newly created person (with id)
 }
 
 function UpdateFunction(){
@@ -109,14 +124,19 @@ function UpdateFunction(){
     // EXT findbyid first to get old values/check if id is vaild
 
     // peopleModel.updateById(id, {name, age, height})
+    // print old person
+    // print new person
     console.log("TODO")
     MainMenu()
 }
 
 function DeleteFunction(){
     // ask for the id
-    // deleteById(id)
-    // EXT findbyid to then confirm that they want to delete this person
+    // deleteById(id) works but..
+    // findByIdAndDelete
+    // print the person they deleted
+    // EXT confirm that they want to delete this person
+    
 
     console.log("TODO")
     MainMenu()
@@ -126,7 +146,7 @@ function NameSearchFunction(){
     // ask for the name
     
     // find({name})
-
+    // print everyone found
     console.log("TODO")
     MainMenu()
 }
@@ -138,6 +158,7 @@ function CustomSortFunction(){
     
     // find all people
     // sort by choosen attribute
+    // print all people found
 
     // There are few hints here, all extension
     // look into "aggregation"
