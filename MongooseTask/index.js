@@ -110,6 +110,7 @@ function CreateFunction(){
     // ask for new name,
     // ask for new age,
     // ask for new height
+    // ask for new job
 
     // peopleModel.create({name, age, height})
     // print newly created person (with id)
@@ -121,6 +122,7 @@ function UpdateFunction(){
     // ask for new name,
     // ask for new age,
     // ask for new height
+    // ask for new job
     // EXT findbyid first to get old values/check if id is vaild
 
     // peopleModel.updateById(id, {name, age, height})
