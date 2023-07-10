@@ -362,7 +362,7 @@ function CustomSortFunction(){
     while (vaild_attribute == null){
 
         console.log("name, age, height, job")
-        const attribute = input("Which attribute to sort by? ").toLowerCase()
+        const attribute = input("Which attribute to sort by? ").toLowerCase()  // "AnDREw".toLowerCase() === "andrew"
 
         if (["name","age","height","job"].indexOf(attribute) !== -1){
             vaild_attribute = attribute
