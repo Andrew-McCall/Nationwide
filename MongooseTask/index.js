@@ -274,33 +274,152 @@ function UpdateFunction(){
     // Loop back to mainmenu
 }
 
-function DeleteFunction(){
+function DeleteFunction_WithoutExtension(){
     // ask for the id
-    // deleteById(id) works but..
-    // findByIdAndDelete
-    // print the person they deleted
-    // Loop back to mainmenu
+    const id = input("What is id? ")
 
-    // EXT confirm that they want to delete this person
+    // findByIdAndDelete
+    peopleModel.findByIdAndDelete(id).then(deletedPerson => {
+        // print the person they deleted
+        console.log(deletedPerson)
+    }).catch( err => {
+        console.log("Invaild ID!")
+    }).finally( () => {
+        // Loop back to mainmenu
+        MainMenu()
+    })
+    
+    console.log("Deleting...")
+
+    // EXT conhfirm tat they want to delete this person
 }
 
+function DeleteFunction(){
+        // ask for the id
+        const id = input("What is id? ")
+    
+        // findByIdAndDelete
+        peopleModel.findById(id).then(person => {
+            // print the person they deleted
+            console.log(person)
+
+            const confirmation = input(`Are you sure you want to delete ${person.name}? `).toLowerCase()
+
+            if (confirmation == "y" || confirmation == "yes"){
+                // peopleModel.deleteOne({_id: mongoose.Types.ObjectId(id)}).then(() => {
+                //     console.log("Person was deleted")
+                // })
+                person.deleteOne().then(() => {
+                    console.log(`'${person.name}' was deleted.`)
+                    MainMenu()
+                })
+                console.log("Deleting...")
+            }else{
+                console.log("Delete canceled!")
+                MainMenu()
+            }
+
+        }).catch( err => {
+            console.log("Invaild ID!")
+            MainMenu()
+        })
+        console.log("Finding...")
+    
+        // EXT conhfirm tat they want to delete this person
+    }
+    
+// get a name of a person, and find all the people with that name
 function NameSearchFunction(){
     // ask for the name
-    
-    // find({name})
-    // print everyone found
-    // Loop back to mainmenu
+    const search = input("What name? ")
+
+   // find({name}) {"$text" : {"$search": search, "$caseSensitive": false}} regex is probably the answer
+    peopleModel.find( {name: search} ).then(people => {
+        // console.log(people) // [in an ugly array]
+
+        if (people.length == 0){
+            console.log("No people were found!")
+        }else{
+            // print everyone found
+            for (let person of people){
+                console.log(person)
+            } 
+        }
+
+        // Loop back to mainmenu
+        MainMenu()
+    })
+ 
+    console.log("Searching...")
+   
 }
 
 function CustomSortFunction(){
     /// ## This whole function is EXTENSION ##
-    // ask for the attribute they wish to sort by
-    // ask for whether the sort is ascending or descending
-    
-    // find all people
-    // sort by choosen attribute
-    // print all people found
+    // ask for the attribute they wish to sort by          // Do not continue unless vaild answer (SubMenu)
 
-    // There are few hints here, all extension
-    // look into "aggregation"
+    let vaild_attribute = null
+    while (vaild_attribute == null){
+
+        console.log("name, age, height, job")
+        const attribute = input("Which attribute to sort by? ").toLowerCase()
+
+        if (["name","age","height","job"].indexOf(attribute) !== -1){
+            vaild_attribute = attribute
+            break;
+
+        }else{
+            console.log("Invaild attribute!")
+        }
+
+    }
+
+    // console.log("name, age, height, job")
+    // const attribute = input("Which attribute to sort by? ").toLowerCase()
+    // if (!(attribute in ["name","age","height","job"])){
+    //     CustomSortFunction()
+    // }
+
+    // ask for whether the sort is ascending or descending // Do not continue unless vaild answer (SubMenu)
+    let vaild_order = null
+    while (vaild_order == null){
+        console.log("ascending or descending? ")
+        const order = input("1 for asecding, -1 for descending? ")
+
+        // exit the loop once vaild
+        // say an error message if invaild
+        switch(order){
+            case "1":
+                vaild_order = "ascending"
+                break; // for the switch only
+            case "-1":
+                vaild_order = "descending"
+                break;
+            default:
+                console.log("Invaild Option")
+        }
+    }
+    // mongodb .sort( {attributeName: "ascending"/"descending"} )
+    // mongodb .sort( {attribute: vaild_order} )
+
+    let sortObject = JSON.Parse(`${attribute}:${vaild_order}`)
+
+    // sortObject.name = "andrew"
+    // console.log(sortObject.name)    // andrew
+    // console.log(sortObject["name"]) // andrew
+    // console.log(`My name is ${sortObject.name}`) // My name is andrew
+
+    // sortObject[vaild_attribute] = vaild_order
+
+    // find all people // sort by choosen attribute
+    peopleModel.find().sort(sortObject).then(peopleSorted => {
+        // print all people found
+        for (let p of peopleSorted){
+            console.log(p)
+        }
+        MainMenu()
+    })
+
+    
+    
 }

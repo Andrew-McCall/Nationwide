@@ -6,7 +6,6 @@ const peopleSchema = new mongoose.Schema({
     height:Number,
     job:String
 })
- 
 
 const peopleModel = mongoose.model("people", peopleSchema)
 
