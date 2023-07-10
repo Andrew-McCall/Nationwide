@@ -4,13 +4,13 @@ const promter = require("prompt-sync") // You may see the the shortcut "const in
 const input = promter()                // running the promter function, returns a new function that then accepts inputs instead of configuration
  
 const peopleModel = require("./people.js")
- 
+
 // Connect then run the annoymous function
 mongoose.connect("mongodb://127.0.0.1:27017/nationwide").then( () => {
 
     // Start the MainMenu Loop
     MainMenu()
- 
+
 }).catch(err => {
     console.log("There was an error.")
     console.log(err.message)

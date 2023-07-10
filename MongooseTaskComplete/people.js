@@ -7,7 +7,7 @@ const peopleSchema = new mongoose.Schema({
     job:String
 })
  
-
+// represents the collection on the database server. as js object
 const peopleModel = mongoose.model("people", peopleSchema)
 
 module.exports = peopleModel
